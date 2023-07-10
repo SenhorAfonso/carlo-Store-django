@@ -16,11 +16,15 @@
             {% endfor %}
         {% endif %}
         <h1 class="text-doing-login">FAZER LOGIN</h1>
+        
         <form action="{% url 'realizar_login' %}" method='POST'>{% csrf_token %}
             <input class="email-input" type="text" placeholder="INSIRA O SEU E-MAIL" name='email-input'>
             <input class="senha-input" type="text" placeholder="INSIRA A SUA SENHA" name='senha-input'>
             <input class="submit-input" type="submit">
             <form>
+                
+        <a href="{% url 'realizar_cadastro' %}" class="button-sign-up">Criar uma conta</a>
+
     </div>
 </div>
 {% endblock %}

@@ -8,9 +8,13 @@ def home(request):
     return render(request, 'home.html')
 
 def realizar_login(request):
+    from core.utils import ValidaLogin
     os.system('cls||clear')
-    login_user = request.POST.get('email-input')
+    login_email = request.POST.get('email-input')
     login_password = request.POST.get('senha-input')
+
+    if not ValidaLogin(request=request, login_email=login_email, login_pass=login_password).validaLogin():
+        return redirect('/login/')
 
     conn = pg.connect(host = 'localhost',
                       database = 'users',
@@ -18,7 +22,7 @@ def realizar_login(request):
                       password = 'admin')
     
     cursor = conn.cursor()
-    sql = f"select user_name, user_password, is_admin from users.users u where u.user_name = '{login_user}' and u.user_password = '{login_password}'"
+    sql = f"select user_name, user_password, is_admin from users.users u where u.user_name = '{login_email}' and u.user_password = '{login_password}'"
     cursor.execute(sql)
 
     users = cursor.fetchall()
@@ -32,21 +36,22 @@ def realizar_login(request):
             #TODO: logar e redirecionar para a home do e-commerce
     else:
         #TODO: redirecionar para a página de cadastro
-        return redirect('/home/realizar_cadastro/')
+        return redirect('/login/realizar_cadastro/')
 
-    return redirect('/home/')
+    return redirect('/login/')
 
 def realizar_cadastro(request):
+    from core.utils import ValidaLogin
+
     if request.method == 'GET':
         return render(request, 'cadastro.html')
     else:
-        login_user = request.POST.get('email-input')
+        login_email = request.POST.get('email-input')
         login_password = request.POST.get('senha-input')
         login_confirm_password = request.POST.get('confirma-senha-input')
 
-        if login_confirm_password != login_password:
-            messages.add_message(request, constants.WARNING, 'As senhas não são iguais!')
-            return redirect('/home/realizar_cadastro/')
+        if not ValidaLogin(request=request, login_email=login_email, login_pass=login_password, login_confirm_pass=login_confirm_password).validaLogin():
+            return redirect('/login/realizar_cadastro/')
 
         conn = pg.connect(host = 'localhost',
                         database = 'users',
@@ -54,7 +59,7 @@ def realizar_cadastro(request):
                         password = 'admin')
         
         cursor = conn.cursor()
-        sql = f"insert into users.users (user_name, user_password, is_admin) values ('{login_user}', '{login_password}', false)"
+        sql = f"insert into users.users (user_name, user_password, is_admin) values ('{login_email}', '{login_password}', false)"
 
         try:
             cursor.execute(sql)
@@ -64,4 +69,4 @@ def realizar_cadastro(request):
         else:
             messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso!')
 
-        return redirect('/home/')
+        return redirect('/login/')
