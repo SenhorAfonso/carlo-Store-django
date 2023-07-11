@@ -14,7 +14,7 @@ def realizar_login(request):
     login_password = request.POST.get('senha-input')
 
     if not ValidaLogin(request=request, login_email=login_email, login_pass=login_password).validaLogin():
-        return redirect('/login/')
+        return redirect('/home/')
 
     conn = pg.connect(host = 'localhost',
                       database = 'users',
@@ -36,9 +36,9 @@ def realizar_login(request):
             #TODO: logar e redirecionar para a home do e-commerce
     else:
         #TODO: redirecionar para a página de cadastro
-        return redirect('/login/realizar_cadastro/')
+        return redirect('/home/realizar_cadastro/')
 
-    return redirect('/login/')
+    return redirect('/ecommerce')
 
 def realizar_cadastro(request):
     from core.utils import ValidaLogin
@@ -51,7 +51,7 @@ def realizar_cadastro(request):
         login_confirm_password = request.POST.get('confirma-senha-input')
 
         if not ValidaLogin(request=request, login_email=login_email, login_pass=login_password, login_confirm_pass=login_confirm_password).validaLogin():
-            return redirect('/login/realizar_cadastro/')
+            return redirect('/home/realizar_cadastro/')
 
         conn = pg.connect(host = 'localhost',
                         database = 'users',
@@ -59,14 +59,23 @@ def realizar_cadastro(request):
                         password = 'admin')
         
         cursor = conn.cursor()
-        sql = f"insert into users.users (user_name, user_password, is_admin) values ('{login_email}', '{login_password}', false)"
 
-        try:
-            cursor.execute(sql)
-            conn.commit()
-        except: #TODO: fazer mensagens de erro mais explicativas
-            messages.add_message(request, constants.ERROR, 'Erro ao cadastrar novo usuário. Por favor, tente novamente')
+        sql = f"select user_name from users.users where user_name = '{login_email}'"
+        cursor.execute(sql)
+        res = cursor.fetchall()
+
+        if not res:
+            sql = f"insert into users.users (user_name, user_password, is_admin) values ('{login_email}', '{login_password}', false)"
+
+            try:
+                cursor.execute(sql)
+                conn.commit()
+            except: #TODO: fazer mensagens de erro mais explicativas
+                messages.add_message(request, constants.ERROR, 'Erro ao cadastrar novo usuário. Por favor, tente novamente')
+            else:
+                messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso!')
         else:
-            messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso!')
+            messages.add_message(request, constants.WARNING, 'O email entrado já está cadastrado')
+            redirect('/home/')
 
-        return redirect('/login/')
+        return redirect('/home/')
