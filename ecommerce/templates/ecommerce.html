@@ -2,9 +2,54 @@
 {% load static %}
 
 {% block 'head' %}
-    <link href="{% static 'home/css/home.css' %}" rel="stylesheet"></link>
+    <link href="{% static 'ecommerce/css/ecommerce.css' %}" rel="stylesheet"></link>
 {% endblock %}
 
 {% block 'body' %}
+
+    <div class="nav-bar">
+
+        <div class="col-md">
+            <label></label>
+            <select name="categoria" class="categories">
+                <option value="1">Categorias</option>
+            </select>
+        </div>
+
+
+        <div><input class="search-bar" type="text"></div>
+        <div class="ecommerce-navbar-rightgroup">
+            <a class="ecommerce-navbar-login" href="">LOGIN</a>
+            <div class="vertical-line"></div>
+            <a class="ecommerce-navbar-cadastrese" href="ecommerce-navbar-cadastrese">CADASTRE-SE</a>
+        </div> 
+
+    </div>
+
+    <div class="ecommerce-container">
+
+        {% for obj in ecommerce_produtos.values %}
+            <div class="ecommerce-product">
+
+                {% for key, value in obj.items %}    
+                    {% if key == 'imagem' %}
+                        <img class="ecommerce-product-image" src="{{value}}" alt="">
+                    {% endif %}
+
+                    {% if key == 'titulo' %}
+                        <p class="ecommerce-product-title">{{value}}</p>
+                    {% endif %}
+
+                    {% if key == 'preco' %}
+                        <p class="ecommerce-product-price">R$ {{value}}</p>
+                    {% endif %}
+
+                {% endfor %}
+                
+            </div>
+        {% endfor %}
+
+    </div> 
     
 {% endblock %}
+
