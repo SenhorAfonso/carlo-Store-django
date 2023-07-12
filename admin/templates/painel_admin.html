@@ -1,0 +1,56 @@
+
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'admin/css/painel_admin.css' %}">
+    <title>Ecommerce</title>
+{% endblock %}
+
+{% block 'body' %}
+        
+    <div class="container">
+
+        <div class="admin-cabecalho">
+            <h1 class="admin-title">CADASTRAR NOVO PRODUTO</h1>
+            <p class="admin-subtitle">insira os dados necessários</p>
+            <p class="admin-subtitle-2">(* obrigatório)</p>
+        </div>
+
+        <div class="admin-basic-informations">
+            <hr class="horizontal-line-left">
+            <p class="inner-line-text-1">Informações Básicas</p>
+            <hr class="horizontal-line-right">
+        </div>
+
+        <div>
+            <form action="">
+            <p class="admin-input-group" id="admin-basic-input">Título: <input class="admin-input" type="text"></p>
+            <p class="admin-input-group" id="admin-basic-input">Descrição: <input class="admin-input" type="text"></p>
+            <p class="admin-input-group" id="admin-basic-input">Preço: <input class="admin-input" type="number"></p>
+            <p class="admin-input-group" id="admin-basic-input">Preço Promocional: <input class="admin-input" type="number"></p>
+            <p class="admin-input-group" id="admin-basic-input-estoque">Estoque: <input class="admin-input"  type="number"></p>
+            <p class="admin-input-group" id="admin-basic-input-imagem">Imagem <input class="admin-input" type="file"></p>
+            </form>
+        </div>
+
+        <div class="admin-basic-informations">
+            <hr class="horizontal-line-left">
+            <p class="inner-line-text-1">Dimensões do Produto</p>
+            <hr class="horizontal-line-right">
+        </div>
+
+        <div>
+            <form action="">
+            <p class="admin-input-group" id="admin-basic-input">Altura: <input class="admin-input" type="number"></p>
+            <p class="admin-input-group" id="admin-basic-input">largura: <input class="admin-input" type="number"></p>
+            <p class="admin-input-group" id="admin-basic-input">Comprimento: <input class="admin-input" type="number"></p>
+            <p class="admin-input-group" id="admin-basic-input">Peso: <input class="admin-input" type="number"></p>
+            </form>
+        </div>
+
+        <input class="admin-submit" type="submit">
+
+    </div>
+
+{% endblock %}

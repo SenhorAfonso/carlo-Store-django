@@ -1,0 +1,142 @@
+
+.homepage-body {
+    margin: 0px;
+    background-color: rgb(160, 170, 200);
+}
+
+.container {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    width: 1900px;
+    height: 1060px;
+    border-radius: 20px 0px 0px 0px;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url(src/Oswald-VariableFont_wght.ttf);
+}
+
+.admin-cabecalho {
+    position: absolute;
+    font-family: 'Oswald';
+    margin: 60px;
+}
+
+.admin-title {
+    position: absolute;
+    margin: 0px;
+    top: 20px;
+    left: 100px;
+    width: 400px;
+}
+
+.admin-subtitle {
+    position: absolute;
+    margin: 0px;
+    top: 65px;
+    left: 100px;
+    width: 400px;
+    font-size: 25px;
+}
+
+.admin-subtitle-2 {
+    position: absolute;
+    margin: 0px;
+    top: 100px;
+    left: 100px;
+    width: 400px;
+    font-size: 15px;
+    color: rgb(255, 50, 50);
+}
+
+.admin-basic-informations {
+    position: relative;
+    top: 200px;
+}
+
+.inner-line-text-1 {
+    position: relative;
+    left: 750px;
+    top: -13px;
+    font-family: 'Oswald';
+    font-size: 25px;
+    color: rgb(250, 110, 80);
+    width: 250px;
+}
+
+.horizontal-line-left {
+    position: absolute;
+    top: 0px;
+    left: 130px;
+    width: 600px;
+    border: 1px solid rgb(250, 110, 80);
+    
+}
+
+.horizontal-line-right {
+    position: absolute;
+    top: 0px;
+    left: 955px;
+    width: 600px;
+    border: 1px solid rgb(250, 110, 80);
+}
+
+.admin-input-group {
+    position: relative;
+    border-radius: 12px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 300px;
+    top: 80px; 
+    font-size: 20px;
+}
+
+.admin-input {
+    border: 2px solid black;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+#admin-basic-input {
+    left: 319px;
+    top: 200px;
+}
+
+#admin-basic-input-estoque {
+    position: absolute;
+    left: 800px;
+    top: 430px;
+}
+
+#admin-basic-input-imagem {
+    position: absolute;
+    left: 1200px;
+    top: 430px;
+}
+
+.admin-submit {
+    position: absolute;
+    left: 750px;
+    top: 705px;
+    width: 200px;
+    height: 30px;
+    border-radius: 12px;
+    background-color: rgb(255, 134, 107);
+    color: rgb(255, 255, 255);
+    font-family: 'Oswald';
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*
+
+    cor de fundo (cinza-claro): rgb(108, 122, 137)
+    laranjinha: rgb(250, 110, 80)
+
+*/
+
