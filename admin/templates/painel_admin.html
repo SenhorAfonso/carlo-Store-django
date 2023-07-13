@@ -11,6 +11,12 @@
         
     <div class="container">
 
+        {% if messages %}
+            {% for message in messages %}
+                <div class="{{ message.tags }}" style="top: 150px">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
         <div class="admin-cabecalho">
             <h1 class="admin-title">CADASTRAR NOVO PRODUTO</h1>
             <p class="admin-subtitle">insira os dados necessários</p>
@@ -24,32 +30,39 @@
         </div>
 
         <div>
-            <form action="">
-            <p class="admin-input-group" id="admin-basic-input">Título: <input class="admin-input" type="text"></p>
-            <p class="admin-input-group" id="admin-basic-input">Descrição: <input class="admin-input" type="text"></p>
-            <p class="admin-input-group" id="admin-basic-input">Preço: <input class="admin-input" type="number"></p>
-            <p class="admin-input-group" id="admin-basic-input">Preço Promocional: <input class="admin-input" type="number"></p>
-            <p class="admin-input-group" id="admin-basic-input-estoque">Estoque: <input class="admin-input"  type="number"></p>
-            <p class="admin-input-group" id="admin-basic-input-imagem">Imagem <input class="admin-input" type="file"></p>
+            <form action="{% url 'cadastrar_produto' %}" method="POST" enctype='multipart/form-data'>{% csrf_token %}
+                
+                <p class="admin-input-group" id="admin-basic-input">*Titulo: <input class="admin-input" type="text" name="produto-titulo"></p>
+                
+                <p class="admin-input-group" id="admin-basic-input">*Descrição: <input class="admin-input" type="text" name="produto-descricao"></p>
+
+                <p class="admin-input-group" id="admin-basic-input">*Preço: <input class="admin-input" type="number" name="produto-preco"></p>
+
+                <p class="admin-input-group" id="admin-basic-input">Preço Promocional: <input class="admin-input" type="number" name="produto-preco-prom"></p>
+
+                <p class="admin-input-group" id="admin-basic-input-estoque">*Estoque: <input class="admin-input" type="number" name="produto-estoque"></p>
+
+                <p class="admin-input-group" id="admin-basic-input-imagem">*Imagem: <input class="admin-input" type="text" name="produto-imagem"></p>
+                
+                <input class="admin-submit" type="submit">
+                
+                <div class="admin-basic-informations">
+                    <hr class="horizontal-line-left">
+                    <p class="inner-line-text-1">Dimensões do Produto</p>
+                    <hr class="horizontal-line-right">
+                </div>
+
+                <p class="admin-input-group" id="admin-basic-input">Altura: <input class="admin-input" type="number" name="produto-altura"></p>
+                
+                <p class="admin-input-group" id="admin-basic-input">largura: <input class="admin-input" type="number" name="produto-largura"></p>
+                
+                <p class="admin-input-group" id="admin-basic-input">Comprimento: <input class="admin-input" type="number" name="produto-comprimento"></p>
+                
+                <p class="admin-input-group" id="admin-basic-input">Peso:&nbsp&nbsp&nbsp<input class="admin-input" type="number" name="produto-peso"></p>
+            
             </form>
         </div>
 
-        <div class="admin-basic-informations">
-            <hr class="horizontal-line-left">
-            <p class="inner-line-text-1">Dimensões do Produto</p>
-            <hr class="horizontal-line-right">
-        </div>
-
-        <div>
-            <form action="">
-            <p class="admin-input-group" id="admin-basic-input">Altura: <input class="admin-input" type="number"></p>
-            <p class="admin-input-group" id="admin-basic-input">largura: <input class="admin-input" type="number"></p>
-            <p class="admin-input-group" id="admin-basic-input">Comprimento: <input class="admin-input" type="number"></p>
-            <p class="admin-input-group" id="admin-basic-input">Peso: <input class="admin-input" type="number"></p>
-            </form>
-        </div>
-
-        <input class="admin-submit" type="submit">
 
     </div>
 

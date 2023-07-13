@@ -7,3 +7,4 @@ urlpatterns = [
     path('realizar_login/', views.realizar_login, name='realizar_login'),
     path('realizar_cadastro/', views.realizar_cadastro, name='realizar_cadastro')
 ]
+

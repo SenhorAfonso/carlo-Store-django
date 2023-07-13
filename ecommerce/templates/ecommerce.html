@@ -28,11 +28,14 @@
 
     <div class="ecommerce-container">
 
-        {% for obj in ecommerce_produtos.values %}
+        <div>{{context_produtos}}</div>
+        {% for obj in context_produtos.values %}
+            <div>{{obj}}</div>
             <div class="ecommerce-product">
 
                 {% for key, value in obj.items %}    
-                    {% if key == 'imagem' %}
+
+                    {% comment %} {% if key == 'imagem' %}
                         <img class="ecommerce-product-image" src="{{value}}" alt="">
                     {% endif %}
 
@@ -42,7 +45,9 @@
 
                     {% if key == 'preco' %}
                         <p class="ecommerce-product-price">R$ {{value}}</p>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
+
+                    
 
                 {% endfor %}
                 

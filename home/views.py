@@ -9,7 +9,7 @@ def home(request):
 
 def realizar_login(request):
     from core.utils import ValidaLogin
-    os.system('cls||clear')
+    
     login_email = request.POST.get('email-input')
     login_password = request.POST.get('senha-input')
 
