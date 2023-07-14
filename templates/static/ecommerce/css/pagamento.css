@@ -1,0 +1,135 @@
+
+.homepage-body {
+    margin: 0px;
+    background-color: rgb(160, 170, 200);
+}
+
+
+@font-face {
+    font-family: 'Oswald';
+    src: url(src/Oswald-VariableFont_wght.ttf);
+}
+
+.item-container {
+    position: absolute;
+    border: 3px solid rgb(55, 55, 90);
+    width: 850px;
+    height: 850px;
+    left: 150px;
+    top: 65px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item-image {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: 45px;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(55, 55, 90);
+}
+
+.item-description {
+    position: relative;
+    font-size: 20px;
+    padding: 100px;
+    width: 750px;
+    height: 200px;
+    max-height: 20px;
+    top: 40px;
+
+    white-space: wrap;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+
+    overflow-wrap: break-word;
+
+}
+
+.title-container {
+    position: relative;
+    border: 3px solid rgb(55, 55, 90);
+    height: 120px;
+    width: 700px;
+    left: 1100px;
+    top: 120px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.title {
+    font-family: 'Oswald';
+    font-size: 40px;
+    padding-top: 30px;
+    justify-content: center;
+    text-align: center;
+    margin: 0px;
+    color: rgb(250, 110, 80);
+
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.payment-container {
+    position: relative;
+    border: 3px solid rgb(55, 55, 90);
+    height: 570px;
+    width: 700px;
+    left: 1100px;
+    top: 220px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.payment-option {
+    font-family: 'Oswald';
+    font-size: 40px;
+    padding-top: 30px;
+    justify-content: center;
+    text-align: center;
+    margin: 0px;
+    color: rgb(250, 110, 80);
+}
+
+.checkbox {
+    position: relative;
+    top: -8px;
+}
+
+.item-submit {
+    font-size: 30px;
+    border: 3px solid rgb(250, 110, 80);
+    border-radius: 12px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Oswald';
+}
+
+.payment {
+    margin: 0px;
+}
+
+.payment-qrcode {
+    position: relative;
+    left: 90px;
+    top: 20px;
+}
+
+/*
+    cor de fundo (cinza-claro): rgb(108, 122, 137)
+    laranjinha: rgb(250, 110, 80)
+
+*/
+

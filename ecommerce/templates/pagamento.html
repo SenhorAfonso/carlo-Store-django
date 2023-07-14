@@ -1,0 +1,28 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'ecommerce/css/pagamento.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+    <div class="container">
+
+        <div class="item-container">
+            <img class="item-image" src="{{produto.3}}" alt="">
+            <p class="item-description"> {{produto.2}} <br><br><br> Preço: {{produto.4}} </p>
+        </div>
+
+        
+        <div class="title-container">
+            <p class="title">{{produto.1}}</p>
+        </div>
+
+        <div class="payment-container">
+            <img class="payment-qrcode" src="{% static 'ecommerce/img/qrcode.png' %}"></img>
+        </div>
+
+    </div>
+
+{% endblock %}

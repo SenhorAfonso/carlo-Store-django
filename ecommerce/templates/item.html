@@ -1,0 +1,43 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'ecommerce/css/item.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+
+    <div class="container">
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="{{ message.tags }}" style="top: 800px; left: 200px;">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="item-container">
+            <img class="item-image" src="{{produto.3}}" alt="">
+            <p class="item-description"> {{produto.2}} <br><br><br> Preço: {{produto.4}} </p>
+        </div>
+
+        
+        <div class="title-container">
+            <p class="title">{{produto.1}}</p>
+        </div>
+
+        <div class="payment-container">
+            <div class="payment-option">
+                <p class="payment">Forma de pagamento</p>
+                <form action="{% url 'pagamento' %}" method="post">{% csrf_token %}
+                    <input type="checkbox" name="checkbox" id="" class="checkbox">
+                    <label for="">PIX</label>
+                    <br>
+                    <hr style="border: 1px solid black">
+                    <input type="submit" name="" id="" class="item-submit">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
